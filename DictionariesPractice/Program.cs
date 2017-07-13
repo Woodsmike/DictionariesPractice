@@ -59,7 +59,7 @@ namespace DictionariesPractice
             {
                 Console.WriteLine(coat);
             }
-
+            Console.WriteLine("\n");
             //Car valet with 10 cars, the key will be a customer last name and the 
             //value will be the car make.  Print all elements to the console.
 
@@ -80,7 +80,7 @@ namespace DictionariesPractice
             {
                 Console.WriteLine(car);
             }
-
+            Console.WriteLine("\n");
             //Create a dictionary of 10 zoo animals.  The key will be the animal type.
             //The value will be the number of animals.
             //Print the animal with the highest quantity to the console.
@@ -95,15 +95,17 @@ namespace DictionariesPractice
             zooAnimal.Add("Apes", 2);
             zooAnimal.Add("Monkies", 6);
             zooAnimal.Add("King Cobras", 2);
-            zooAnimal.Add("Gazelles", 4);
+            zooAnimal.Add("Elephants", 4);
             zooAnimal.Add("Birds", 20);
             zooAnimal.Add("Polar Bears", 1);
 
-        
+            //var sortedDict = from entry in zooAnimal orderby entry.Value ascending select entry;
+            Dictionary<string, int> sortedDict = new Dictionary<string, int>();
+            foreach (KeyValuePair<string, int> item in zooAnimal.OrderBy(key => key.Value))
             {
-                ;                
+                sortedDict.Add(item.Key,item.Value);
             }
-
+            Console.WriteLine(sortedDict.Last());
         }
     }
 }
