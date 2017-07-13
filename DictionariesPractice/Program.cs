@@ -106,6 +106,18 @@ namespace DictionariesPractice
                 sortedDict.Add(item.Key,item.Value);
             }
             Console.WriteLine(sortedDict.Last());
+            sortedDict.Remove(sortedDict.Keys.First());
+            Console.WriteLine(sortedDict.First());
+            foreach(KeyValuePair<string,int> animal in zooAnimal)
+            if(animal.Key == "Monkies")
+            {
+                Console.WriteLine(animal.Value);
+            }
+
+            foreach (KeyValuePair<string, int> animal in zooAnimal.Where(KeyValuePair => KeyValuePair.Value == zooAnimal.Values.Min()).ToList())
+            {
+                zooAnimal.Remove(animal.Key);
+            }
         }
     }
 }
